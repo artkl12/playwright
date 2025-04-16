@@ -1,6 +1,7 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
+test.describe('Login Tests', () => {
 test('TC01 - successful login', async ({ page }) => {
   await page.goto('https://practicetestautomation.com/practice-test-login/');
   await page.fill('#username', 'student')
@@ -57,4 +58,5 @@ test('TC07 - logout', async ({page}) => {
   await expect(page.getByRole('heading', {name: 'Logged in successfully'})).toHaveText('Logged In Successfully');
   await page.getByRole('link', {name: 'Log out'}).click()
   await expect(page.getByRole('heading', {name: 'Test login'})).toHaveText('Test login')
+})
 })
